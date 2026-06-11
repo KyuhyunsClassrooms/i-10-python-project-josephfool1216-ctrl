@@ -22,40 +22,24 @@ experiments = []
 def add_data(exp_list):
     print("--- 📝 마법각 그래핀 실험 데이터 입력 ---")
     print("각도(도)와 온도(K)를 띄어쓰기로 입력하세요. (예: 1.1 1.5)")
-    
-    
-    for i in range(1, 4):
         
-        angle, temp = map(float, input(f"[실험 {i}번] 각도와 온도 입력: ").split())
-        
-        
+    for i in range(1, 4):       
+        angle, temp = map(float, input(f"[실험 {i}번] 각도와 온도 입력: ").split())        
         exp_list.append([i, angle, temp, "결과 대기"])
         
     print("✅ 데이터 입력 완료!\n")
 
-
 def check_superconductivity(exp_list):
-    print("--- 🔬 그래핀 초전도 실험 결과 ---")
-    
-    
-    for row in exp_list:
-        angle = row[1]  
-        temp = row[2]   
-        
-        
-        if angle == 1.1 and temp <= 1.7:
+    print("--- 🔬 그래핀 초전도 실험 결과 ---") 
+    for row in exp_list:     
+        if row[1] == 1.1 and row[2] <= 1.7:
             row[3] = "🔥 초전도 상태 달성!"
         else:
             row[3] = "일반 상태"
             
         
-        print(f"실험 {row[0]}번 | 각도: {angle}도, 온도: {temp}K ➡️ 결과: {row[3]}")
-
-
+        print(f"실험 {row[0]}번 | 각도: {row[1]}도, 온도: {row[2]}K ➡️ 결과: {row[3]}")
 
 
 add_data(experiments)
-
-
 check_superconductivity(experiments)
-
